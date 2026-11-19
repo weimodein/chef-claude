@@ -1,34 +1,35 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 body {
+  margin: 0;
   font-family: Inter, sans-serif;
   background-color: #fafaf8;
 }
 
-.header-container img {
-  width: 50px;
-  height: 60px;
-}
-
-.header-container h1 {
-  font-size: 32px;
-  font-weight: 400;
-}
-
-.header-container {
+header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-  background-color: #ffffff;
+  gap: 11px;
+  height: 80px;
+  background-color: white;
   box-shadow:
     0px 1px 3px 0px rgba(0, 0, 0, 0.1),
     0px 1px 2px 0px rgba(0, 0, 0, 0.06);
-  padding: 24px;
+}
+
+header > img {
+  width: 50px;
+}
+
+header > h1 {
+  font-weight: 400;
+}
+
+main {
+  padding: 30px 30px 10px;
 }
 
 .add-ingredient-form {
@@ -38,33 +39,28 @@ body {
   height: 38px;
 }
 
-.add-ingredient-form input {
+.add-ingredient-form > input {
   border-radius: 6px;
   border: 1px solid #d1d5db;
-  padding: 12px 16px;
+  padding: 9px 13px;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
   flex-grow: 1;
   min-width: 150px;
   max-width: 400px;
-  font-size: 1.2rem;
 }
 
-.add-ingredient-form button {
+.add-ingredient-form > button {
   font-family: Inter, sans-serif;
   border-radius: 6px;
   border: none;
   background-color: #141413;
   color: #fafaf8;
-  width: 160px;
-  font-size: 1rem;
+  width: 150px;
+  font-size: 0.875rem;
   font-weight: 500;
 }
 
 .add-ingredient-form > button::before {
   content: "+";
   margin-right: 5px;
-}
-
-.main-container {
-  padding: 30px 30px 10px;
 }
