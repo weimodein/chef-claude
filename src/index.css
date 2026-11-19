@@ -30,3 +30,41 @@ body {
     0px 1px 2px 0px rgba(0, 0, 0, 0.06);
   padding: 24px;
 }
+
+.add-ingredient-form {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  height: 38px;
+}
+
+.add-ingredient-form input {
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  padding: 12px 16px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  flex-grow: 1;
+  min-width: 150px;
+  max-width: 400px;
+  font-size: 1rem;
+}
+
+.add-ingredient-form button {
+  font-family: Inter, sans-serif;
+  border-radius: 6px;
+  border: none;
+  background-color: #141413;
+  color: #fafaf8;
+  width: 160px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.add-ingredient-form > button::before {
+  content: "+";
+  margin-right: 5px;
+}
+
+.main-container {
+  padding: 30px 30px 10px;
+}
