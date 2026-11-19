@@ -46,7 +46,7 @@ body {
   flex-grow: 1;
   min-width: 150px;
   max-width: 400px;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .add-ingredient-form button {
