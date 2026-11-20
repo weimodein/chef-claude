@@ -11,8 +11,23 @@ function Main() {
     setIngredient((prevIngredients) => [...prevIngredients, newIngredient]);
   }
 
-  function toggleRecipeShown() {
-    setRecipeShown((prevShown) => !prevShown);
+  async function getRecipe() {
+    // setRecipeShown((prevShown) => !prevShown);
+    // const recipeMarkdown = await getRecipeFromMistral(ingredients);
+    // console.log(recipeMarkdown);
+    const response = await fetch("/api/recipe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ingredients }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Could not generate a recipe");
+    }
+
+    console.log(data.recipe);
   }
 
   return (
@@ -27,10 +42,7 @@ function Main() {
         <button>Add Ingredient</button>
       </form>
       {ingredients.length > 0 && (
-        <IngredientsList
-          ingredients={ingredients}
-          onclick={toggleRecipeShown}
-        />
+        <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
       )}
       {recipeShown && <ClaudeRecipe />}
     </main>
