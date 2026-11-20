@@ -6,10 +6,6 @@ function Main() {
   const [ingredients, setIngredient] = useState([]);
   const [recipeShown, setRecipeShown] = useState(false);
 
-  const ingredientsListItems = ingredients.map((ingredient) => (
-    <li key={ingredient}>{ingredient}</li>
-  ));
-
   function addIngredient(formData) {
     const newIngredient = formData.get("ingredient");
     setIngredient((prevIngredients) => [...prevIngredients, newIngredient]);
@@ -33,7 +29,6 @@ function Main() {
       {ingredients.length > 0 && (
         <IngredientsList
           ingredients={ingredients}
-          ingredientsList={ingredientsListItems}
           onclick={toggleRecipeShown}
         />
       )}
