@@ -32,6 +32,7 @@ function Main() {
       </form>
       {ingredients.length > 0 && (
         <IngredientsList
+          ingredients={ingredients}
           ingredientsList={ingredientsListItems}
           onclick={toggleRecipeShown}
         />

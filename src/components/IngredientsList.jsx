@@ -5,7 +5,7 @@ function IngredientsList(props) {
       <ul className="ingredients-list" aria-live="polite">
         {props.ingredientsList}
       </ul>
-      {props.ingredientsList.length > 3 && (
+      {props.ingredients.length > 3 && (
         <div className="get-recipe-container">
           <div>
             <h3>Ready for a recipe?</h3>
