@@ -11,7 +11,7 @@ export async function getRecipeFromMistral(ingredientsArr) {
   const ingredientsString = ingredientsArr.join(", ");
   try {
     const response = await hf.chatCompletion({
-      model: "mistralai/Mixtral-8x7B-Instruct-v0.1",
+      model: "google/gemma-2-2b-it",
       messages: [
         { role: "system", content: SYSTEM_PROMPT },
         {
