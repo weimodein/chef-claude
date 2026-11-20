@@ -11,8 +11,8 @@ function Main() {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const newIngredient = formData.get("ingredient");
-
     setIngredient((prevIngredients) => [...prevIngredients, newIngredient]);
+    event.currentTarget.reset();
   }
 
   return (
