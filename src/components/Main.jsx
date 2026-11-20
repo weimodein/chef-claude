@@ -7,17 +7,14 @@ function Main() {
     <li key={ingredient}>{ingredient}</li>
   ));
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+  function addIngredient(formData) {
     const newIngredient = formData.get("ingredient");
     setIngredient((prevIngredients) => [...prevIngredients, newIngredient]);
-    event.currentTarget.reset();
   }
 
   return (
     <main className="main-container">
-      <form onSubmit={handleSubmit} className="add-ingredient-form">
+      <form action={addIngredient} className="add-ingredient-form">
         <input
           type="text"
           aria-label="Add ingredient"
