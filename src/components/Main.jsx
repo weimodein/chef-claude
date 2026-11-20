@@ -4,7 +4,7 @@ import IngredientsList from "./IngredientsList";
 
 function Main() {
   const [ingredients, setIngredient] = useState([]);
-  const [recipeShown, setRecipeShown] = useState(false);
+  const [recipe, setRecipe] = useState(false);
 
   function addIngredient(formData) {
     const newIngredient = formData.get("ingredient");
@@ -12,9 +12,6 @@ function Main() {
   }
 
   async function getRecipe() {
-    // setRecipeShown((prevShown) => !prevShown);
-    // const recipeMarkdown = await getRecipeFromMistral(ingredients);
-    // console.log(recipeMarkdown);
     const response = await fetch("/api/recipe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -28,6 +25,8 @@ function Main() {
     }
 
     console.log(data.recipe);
+    const recipeMarkdown = data.recipe;
+    setRecipe(recipeMarkdown);
   }
 
   return (
@@ -44,7 +43,7 @@ function Main() {
       {ingredients.length > 0 && (
         <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
       )}
-      {recipeShown && <ClaudeRecipe />}
+      {recipe && <ClaudeRecipe recipe={recipe} />}
     </main>
   );
 }
