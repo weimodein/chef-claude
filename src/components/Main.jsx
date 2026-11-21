@@ -49,7 +49,11 @@ function Main() {
         <button>Add Ingredient</button>
       </form>
       {ingredients.length > 0 && (
-        <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
+        <IngredientsList
+          ingredients={ingredients}
+          getRecipe={getRecipe}
+          isLoading={isLoading}
+        />
       )}
       {isLoading && <p>Generating your recipe...</p>}
       {recipe && !isLoading && <ClaudeRecipe recipe={recipe} />}
