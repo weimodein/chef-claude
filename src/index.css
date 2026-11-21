@@ -26,6 +26,10 @@ body {
   height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family:
@@ -48,7 +52,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 88px;
+  height: 80px;
   padding: 0 48px;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
@@ -65,14 +69,14 @@ header {
 }
 
 .brand img {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   object-fit: contain;
 }
 
 .brand h1 {
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   letter-spacing: -0.02em;
   margin: 0;
   color: var(--text);
@@ -82,12 +86,12 @@ header {
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
 }
 
 .header-link {
   color: var(--text-subtle);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
   text-decoration: none;
   transition:
@@ -107,63 +111,47 @@ header {
 
 .header-link--icon:hover {
   color: var(--text);
-  transform: scale(1.05); /* Slight pop effect for the icon */
+  transform: scale(1.05);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  header {
-    padding: 0 24px;
-    height: 72px;
-  }
-  .brand h1 {
-    font-size: 1.25rem;
-  }
-  .header-nav {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  /* Hide the text link on very small screens to prevent crowding */
-  .header-link:not(.header-link--icon) {
-    display: none;
-  }
+.header-link--icon svg {
+  width: 22px;
+  height: 22px;
 }
 
 /* ---------- Layout ---------- */
 main {
   max-width: 800px;
   margin: 0 auto;
-  padding: 64px 32px 120px;
+  padding: 40px 32px 100px;
 }
 
 .intro {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 .intro h2 {
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   font-weight: 600;
   letter-spacing: -0.03em;
-  margin: 0 0 16px;
+  margin: 0 0 10px;
   line-height: 1.2;
 }
 
 .intro p {
   color: var(--text-subtle);
-  font-size: 1.125rem;
+  font-size: 0.95rem;
   margin: 0;
-  max-width: 500px;
+  max-width: 480px;
   margin-inline: auto;
 }
 
 /* ---------- Add-ingredient form ---------- */
 .add-ingredient-form {
   display: flex;
-  gap: 12px;
-  padding: 10px;
+  gap: 8px;
+  padding: 8px;
   background: var(--surface);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
@@ -183,9 +171,9 @@ main {
   min-width: 0;
   border: none;
   background: transparent;
-  padding: 12px 20px;
+  padding: 10px 16px;
   font-family: inherit;
-  font-size: 1.125rem;
+  font-size: 0.95rem;
   color: var(--text);
   outline: none;
 }
@@ -201,9 +189,9 @@ main {
   background: var(--text);
   color: var(--bg);
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  padding: 14px 28px;
+  padding: 10px 20px;
   cursor: pointer;
   white-space: nowrap;
   transition:
@@ -221,9 +209,9 @@ main {
 
 .add-ingredient-form > button::before {
   content: "+";
-  margin-right: 8px;
+  margin-right: 6px;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .add-ingredient-form > button:focus-visible {
@@ -233,11 +221,11 @@ main {
 
 /* ---------- Empty state ---------- */
 .empty-state {
-  margin-top: 32px;
-  padding: 32px;
+  margin-top: 24px;
+  padding: 24px;
   text-align: center;
   color: var(--text-subtle);
-  font-size: 1rem;
+  font-size: 0.9rem;
   border: 1px dashed var(--border-strong);
   border-radius: var(--radius-lg);
   background: rgba(240, 239, 235, 0.4);
@@ -249,8 +237,8 @@ main {
 
 /* ---------- Ingredients card ---------- */
 .ingredients-card {
-  margin-top: 40px;
-  padding: 40px;
+  margin-top: 32px;
+  padding: 24px 28px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -261,11 +249,11 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .section-header h2 {
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   font-weight: 600;
   margin: 0;
   letter-spacing: -0.01em;
@@ -275,12 +263,12 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 32px;
-  height: 32px;
-  padding: 0 12px;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 8px;
   background: var(--surface-alt);
   color: var(--text-muted);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 600;
   border-radius: 999px;
 }
@@ -288,42 +276,69 @@ main {
 .ingredients-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  align-content: flex-start; /* Fixes chips stacking to top */
+  gap: 8px;
   margin: 0;
   padding: 0;
   list-style: none;
+  max-height: 180px;
+  overflow-y: auto;
+  padding-bottom: 4px; /* Gives room for the fade-in animation */
+
+  /* CRITICAL FIX: Reserves space for scrollbar to prevent layout shift */
+  scrollbar-gutter: stable;
+}
+
+/* Custom scrollbar */
+.ingredients-list::-webkit-scrollbar {
+  width: 6px;
+}
+.ingredients-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.ingredients-list::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+.ingredients-list::-webkit-scrollbar-thumb:hover {
+  background: var(--text-subtle);
 }
 
 .ingredient-chip {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 12px 8px 16px;
+  gap: 6px;
+  padding: 5px 10px 5px 12px;
   background: var(--surface-alt);
   color: var(--text-muted);
   border-radius: 999px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  animation: fadeUp 0.2s ease both;
+  max-width: 100%;
+  word-break: break-word;
+
+  /* Changed from fadeUp to fadeIn to stop animation from triggering scrollbar */
+  animation: fadeIn 0.2s ease both;
 }
 
 .ingredient-chip__remove {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   padding: 0;
   border: none;
   border-radius: 50%;
   background: rgba(20, 20, 19, 0.08);
   color: var(--text-muted);
-  font-size: 1rem;
+  font-size: 0.85rem;
   line-height: 1;
   cursor: pointer;
   transition:
     background 0.15s ease,
     color 0.15s ease;
+  flex-shrink: 0;
 }
 
 .ingredient-chip__remove:hover {
@@ -333,26 +348,26 @@ main {
 
 /* ---------- Get-recipe CTA ---------- */
 .get-recipe-container {
-  margin-top: 32px;
-  padding: 24px 32px;
+  margin-top: 24px;
+  padding: 16px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 16px;
   background: linear-gradient(135deg, #fbf4ef 0%, #f7ece4 100%);
   border: 1px solid #f0dccf;
   border-radius: var(--radius-lg);
 }
 
 .get-recipe-text h3 {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin: 0 0 4px;
+  margin: 0 0 2px;
 }
 
 .get-recipe-text p {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: var(--text-subtle);
 }
 
@@ -362,9 +377,9 @@ main {
   border-radius: var(--radius);
   background: var(--accent);
   color: #fff;
-  padding: 14px 24px;
+  padding: 10px 20px;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   transition:
@@ -391,8 +406,8 @@ main {
 }
 
 .get-recipe-hint {
-  margin: 24px 0 0;
-  font-size: 0.95rem;
+  margin: 16px 0 0;
+  font-size: 0.85rem;
   color: var(--text-subtle);
   text-align: center;
 }
@@ -403,7 +418,7 @@ main {
   align-items: center;
   gap: 20px;
   margin-top: 32px;
-  padding: 32px 40px;
+  padding: 28px 32px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -412,9 +427,9 @@ main {
 
 .spinner {
   flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-  border: 4px solid #e8e3db;
+  width: 28px;
+  height: 28px;
+  border: 3px solid #e8e3db;
   border-top-color: var(--accent);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
@@ -422,26 +437,26 @@ main {
 
 .loader__title {
   margin: 0;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text);
 }
 
 .loader__subtitle {
-  margin: 4px 0 0;
-  font-size: 0.95rem;
+  margin: 2px 0 0;
+  font-size: 0.85rem;
   color: var(--text-subtle);
 }
 
 /* ---------- Error ---------- */
 .error-card {
   margin-top: 32px;
-  padding: 24px 32px;
+  padding: 20px 28px;
   background: #fdf2ee;
   border: 1px solid #f5d0c3;
   border-radius: var(--radius-lg);
   color: #9a3f1f;
-  font-size: 1rem;
+  font-size: 0.95rem;
   animation: fadeIn 0.2s ease both;
 }
 
@@ -452,7 +467,7 @@ main {
 /* ---------- Recipe card ---------- */
 .recipe-card {
   margin-top: 40px;
-  padding: 48px;
+  padding: 40px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -464,19 +479,19 @@ main {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-bottom: 24px;
-  margin-bottom: 32px;
+  padding-bottom: 20px;
+  margin-bottom: 24px;
   border-bottom: 1px solid var(--border);
 }
 
 .recipe-card__icon {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
 }
 
 .recipe-card__header h2 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
   letter-spacing: -0.02em;
@@ -484,8 +499,8 @@ main {
 
 .suggested-recipe-container {
   color: var(--text-muted);
-  font-size: 1.125rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 .suggested-recipe-container > :first-child {
@@ -497,20 +512,20 @@ main {
 .suggested-recipe-container h3 {
   color: var(--text);
   letter-spacing: -0.02em;
-  margin: 1.8em 0 0.8em;
+  margin: 1.6em 0 0.6em;
   line-height: 1.3;
 }
 
 .suggested-recipe-container h1 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 .suggested-recipe-container h2 {
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 .suggested-recipe-container h3 {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 600;
 }
 
@@ -520,12 +535,12 @@ main {
 
 .suggested-recipe-container ul,
 .suggested-recipe-container ol {
-  padding-left: 1.6em;
-  margin: 0 0 1.5em;
+  padding-left: 1.5em;
+  margin: 0 0 1.4em;
 }
 
 .suggested-recipe-container li {
-  margin-bottom: 0.6em;
+  margin-bottom: 0.5em;
 }
 
 .suggested-recipe-container strong {
@@ -534,8 +549,8 @@ main {
 }
 
 .suggested-recipe-container blockquote {
-  margin: 1.5em 0;
-  padding: 16px 24px;
+  margin: 1.4em 0;
+  padding: 12px 20px;
   border-left: 4px solid var(--accent);
   background: var(--surface-alt);
   border-radius: 0 8px 8px 0;
@@ -545,7 +560,7 @@ main {
 
 .suggested-recipe-container code {
   background: var(--surface-alt);
-  padding: 4px 8px;
+  padding: 3px 6px;
   border-radius: 6px;
   font-size: 0.9em;
 }
@@ -553,7 +568,7 @@ main {
 .suggested-recipe-container hr {
   border: none;
   border-top: 1px solid var(--border);
-  margin: 2em 0;
+  margin: 1.8em 0;
 }
 
 /* ---------- Animations ---------- */
@@ -585,22 +600,32 @@ main {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
-  main {
-    padding: 48px 24px 80px;
-  }
   header {
+    padding: 0 24px;
     height: 72px;
   }
+  .brand h1 {
+    font-size: 1.2rem;
+  }
+  .header-nav {
+    gap: 20px;
+  }
+  main {
+    padding: 32px 24px 80px;
+  }
   .intro h2 {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
   }
   .ingredients-card,
   .recipe-card {
-    padding: 32px 24px;
+    padding: 24px 20px;
   }
 }
 
 @media (max-width: 560px) {
+  .header-link:not(.header-link--icon) {
+    display: none;
+  }
   .add-ingredient-form {
     flex-direction: column;
     padding: 12px;
@@ -610,16 +635,16 @@ main {
   }
   .add-ingredient-form > button {
     width: 100%;
-    padding: 16px;
+    padding: 12px;
   }
   .get-recipe-container {
     flex-direction: column;
     align-items: stretch;
-    padding: 24px;
+    padding: 16px 20px;
   }
   .get-recipe-container button {
     width: 100%;
-    padding: 16px;
+    padding: 12px;
   }
   .recipe-card {
     padding: 24px 20px;
