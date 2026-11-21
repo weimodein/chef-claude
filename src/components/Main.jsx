@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import ClaudeRecipe from "./ClaudeRecipe";
 import IngredientsList from "./IngredientsList";
 
@@ -7,6 +7,17 @@ function Main() {
   const [recipe, setRecipe] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const loaderRef = useRef(null);
+
+  useEffect(() => {
+    if (isLoading && loaderRef.current) {
+      loaderRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [isLoading]);
 
   function addIngredient(formData) {
     const newIngredient = formData.get("ingredient")?.trim();
@@ -83,7 +94,7 @@ function Main() {
       )}
 
       {isLoading && (
-        <div className="loader">
+        <div className="loader" ref={loaderRef}>
           <div className="spinner"></div>
           <div>
             <p className="loader__title">Chef Claude is cooking...</p>
