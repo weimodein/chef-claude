@@ -51,8 +51,8 @@ function Main() {
       <section className="intro">
         <h2>What&rsquo;s in your kitchen?</h2>
         <p>
-          Add what you have on hand, and Chef Claude will craft a recipe for
-          you.
+          Add what you have on hand, and Chef Claude will craft a personalized
+          recipe for you.
         </p>
       </section>
 
