@@ -5,6 +5,7 @@ import IngredientsList from "./IngredientsList";
 function Main() {
   const [ingredients, setIngredient] = useState([]);
   const [recipe, setRecipe] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   function addIngredient(formData) {
     const newIngredient = formData.get("ingredient");
@@ -12,21 +13,28 @@ function Main() {
   }
 
   async function getRecipe() {
-    const response = await fetch("/api/recipe", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ingredients }),
-    });
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/recipe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ingredients }),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (!response.ok) {
-      throw new Error(data.error || "Could not generate a recipe");
+      if (!response.ok) {
+        throw new Error(data.error || "Could not generate a recipe");
+      }
+
+      console.log(data.recipe);
+      const recipeMarkdown = data.recipe;
+      setRecipe(recipeMarkdown);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
     }
-
-    console.log(data.recipe);
-    const recipeMarkdown = data.recipe;
-    setRecipe(recipeMarkdown);
   }
 
   return (
@@ -43,7 +51,8 @@ function Main() {
       {ingredients.length > 0 && (
         <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
       )}
-      {recipe && <ClaudeRecipe recipe={recipe} />}
+      {isLoading && <p>Generating your recipe...</p>}
+      {recipe && !isLoading && <ClaudeRecipe recipe={recipe} />}
     </main>
   );
 }
