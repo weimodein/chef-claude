@@ -55,7 +55,12 @@ function Main() {
           isLoading={isLoading}
         />
       )}
-      {isLoading && <p>Generating your recipe...</p>}
+      {isLoading && (
+        <div className="loader">
+          <div className="spinner"></div>
+          <p>Generating your recipe...</p>
+        </div>
+      )}
       {recipe && !isLoading && <ClaudeRecipe recipe={recipe} />}
     </main>
   );
