@@ -9,6 +9,7 @@ function Main() {
   const [error, setError] = useState(null);
 
   const loaderRef = useRef(null);
+  const recipeRef = useRef(null);
 
   useEffect(() => {
     if (isLoading && loaderRef.current) {
@@ -18,6 +19,17 @@ function Main() {
       });
     }
   }, [isLoading]);
+
+  useEffect(() => {
+    if (!isLoading && recipe && recipeRef.current) {
+      setTimeout(() => {
+        recipeRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 100);
+    }
+  }, [isLoading, recipe]);
 
   function addIngredient(formData) {
     const newIngredient = formData.get("ingredient")?.trim();
@@ -111,7 +123,7 @@ function Main() {
         </div>
       )}
 
-      {recipe && !isLoading && <ClaudeRecipe recipe={recipe} />}
+      {recipe && !isLoading && <ClaudeRecipe recipe={recipe} ref={recipeRef} />}
     </main>
   );
 }

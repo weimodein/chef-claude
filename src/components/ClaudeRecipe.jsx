@@ -1,9 +1,9 @@
 import ReactMarkdown from "react-markdown";
 import chefClaudeIcon from "../assets/chef-claude-icon.png";
 
-function ClaudeRecipe({ recipe }) {
+function ClaudeRecipe({ recipe, ref }) {
   return (
-    <article className="recipe-card">
+    <article className="recipe-card" ref={ref}>
       <div className="recipe-card__header">
         <img src={chefClaudeIcon} alt="" className="recipe-card__icon" />
         <h2>Chef Claude Recommends</h2>
