@@ -1,23 +1,49 @@
-function IngredientsList(props) {
-  const ingredientsListItems = props.ingredients.map((ingredient) => (
-    <li key={ingredient}>{ingredient}</li>
-  ));
+function IngredientsList({
+  ingredients,
+  getRecipe,
+  isLoading,
+  removeIngredient,
+}) {
+  const remaining = 4 - ingredients.length;
+
   return (
-    <section>
-      <h2>Ingredients on hand:</h2>
+    <section className="ingredients-card">
+      <div className="section-header">
+        <h2>Ingredients on hand</h2>
+        <span className="count-badge">{ingredients.length}</span>
+      </div>
+
       <ul className="ingredients-list" aria-live="polite">
-        {ingredientsListItems}
+        {ingredients.map((ingredient, index) => (
+          <li key={`${ingredient}-${index}`} className="ingredient-chip">
+            <span>{ingredient}</span>
+            <button
+              type="button"
+              className="ingredient-chip__remove"
+              onClick={() => removeIngredient(index)}
+              aria-label={`Remove ${ingredient}`}
+            >
+              ×
+            </button>
+          </li>
+        ))}
       </ul>
-      {props.ingredients.length > 3 && (
+
+      {ingredients.length > 3 ? (
         <div className="get-recipe-container">
-          <div>
+          <div className="get-recipe-text">
             <h3>Ready for a recipe?</h3>
-            <p>Generate a recipe from your list of ingredients.</p>
+            <p>Generate one from your list of ingredients.</p>
           </div>
-          <button onClick={props.getRecipe} disabled={props.isLoading}>
-            {props.isLoading ? "Generating..." : "Get a recipe"}
+          <button onClick={getRecipe} disabled={isLoading}>
+            {isLoading ? "Generating..." : "Get recipe"}
           </button>
         </div>
+      ) : (
+        <p className="get-recipe-hint">
+          Add {remaining} more ingredient{remaining === 1 ? "" : "s"} to unlock
+          recipe suggestions.
+        </p>
       )}
     </section>
   );

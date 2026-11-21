@@ -2,8 +2,8 @@ import chefClaudeIcon from "../assets/chef-claude-icon.png";
 
 function Header() {
   return (
-    <header className="header-container">
-      <img src={chefClaudeIcon} alt="Chef claude icon" />
+    <header>
+      <img src={chefClaudeIcon} alt="Chef Claude icon" />
       <h1>Chef Claude</h1>
     </header>
   );
