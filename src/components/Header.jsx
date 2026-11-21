@@ -16,7 +16,7 @@ function Header() {
         </a>
 
         <a
-          href="https://github.com/yourusername/chef-claude" // UPDATE THIS URL
+          href="https://github.com/weimodein/chef-claude"
           target="_blank"
           rel="noopener noreferrer"
           className="header-link header-link--icon"
